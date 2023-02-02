@@ -9,6 +9,7 @@ public class CountNumber {
         int findNumber = in.nextInt();
         int count = 0;
 
+
         while (number > 0) {
             int lastDigit = number % 10;
             if(findNumber == lastDigit) {
