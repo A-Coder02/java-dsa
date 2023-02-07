@@ -1,5 +1,7 @@
 package linearSearch;
 
+import java.util.Arrays;
+
 public class SearchIn2DArray {
     public static void main(String[] args) {
         int[][] arr = {
@@ -8,18 +10,32 @@ public class SearchIn2DArray {
                 {78, 99, 34, 56},
                 {18, 12}
         };
-        int target = 100;
-        System.out.println(search(arr, target));
+        int target = 34;
+        System.out.println(Arrays.toString(search(arr, target)));
+        System.out.println(max(arr));
     }
 
-    static int search (int[][] arr, int target) {
-        for (int[] rowArr : arr) {
-            for(int rowElt : rowArr) {
-                if(rowElt == target) {
-                    return rowElt;
+    static int[] search (int[][] arr, int target) {
+
+        for(int row = 0; row < arr.length; row ++) {
+            for (int col = 0; col < arr[row].length; col++) {
+                if (arr[row][col] == target) {
+                    return new int[]{row, col};
                 }
             }
         }
-        return -1;
+
+        return new int[]{-1,-1};
+    }
+
+    static  int max (int[][] arr) {
+        int max = -1;
+        for (int[] ints : arr) {
+            for (int anInt : ints)
+                if (anInt > max) {
+                    max = anInt;
+                }
+        }
+        return max;
     }
 }
